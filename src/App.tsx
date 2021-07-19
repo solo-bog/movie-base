@@ -1,11 +1,12 @@
 import React from "react";
+import { Container } from "react-bootstrap";
 import MainRouter from "./components/MainRouter/MainRouter";
 
 function App() {
   return (
-    <div>
+    <Container>
       <MainRouter />
-    </div>
+    </Container>
   );
 }
 
