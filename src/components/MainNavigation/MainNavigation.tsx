@@ -10,7 +10,7 @@ import { ReactComponent as ProfileIcon } from "../../assets/img/user.svg";
 const Navbar = styled.nav`
   display: flex;
   justify-content: space-around;
-  padding: 15px;
+  padding: 10px 0;
   position: fixed;
   bottom: 0;
   left: 0;
@@ -25,14 +25,14 @@ const StyledNavItem = styled.div`
   &:hover {
     color: #e24951;
   }
+  &:hover svg * {
+    fill: #e24951;
+  }
   & svg {
     display: block;
-    width: 50px;
-    height: 50px;
+    width: 35px;
+    height: 35px;
     margin: 0 auto;
-    &:hover * {
-      fill: #e24951;
-    }
     & * {
       fill: #999999;
     }
