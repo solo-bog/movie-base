@@ -9,7 +9,7 @@ type PageSectionProps = {
   items: Movie[];
 };
 
-const PageSection = ({ title, link, items }: PageSectionProps) => {
+const PageSection: React.FC<PageSectionProps> = ({ title, link, items }) => {
   return (
     <section>
       <h2>

@@ -11,7 +11,7 @@ type PageHeaderProps = {
   title: string;
 };
 
-const PageHeader = ({ title }: PageHeaderProps) => {
+const PageHeader: React.FC<PageHeaderProps> = ({ title }) => {
   return (
     <StyledHeader>
       <h1>{title}</h1>

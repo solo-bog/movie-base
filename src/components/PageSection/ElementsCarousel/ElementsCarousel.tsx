@@ -14,7 +14,7 @@ type ElementsCarouselProps = {
   items: Movie[];
 };
 
-const ElementsCarousel = ({ items }: ElementsCarouselProps) => {
+const ElementsCarousel: React.FC<ElementsCarouselProps> = ({ items }) => {
   return (
     <CarouselContainer>
       {items.map((item) => (

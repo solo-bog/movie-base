@@ -39,7 +39,7 @@ const StyledNavItem = styled.div`
   }
 `;
 
-const MainNavigation = () => {
+const MainNavigation: React.FC = () => {
   return (
     <Navbar>
       <NavLink to="/movies">

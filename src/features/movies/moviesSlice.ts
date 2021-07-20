@@ -80,6 +80,8 @@ export const moviesSlice = createSlice({
       });
   },
 });
+export const { setPopular, setNowPlaying, setTopRated, setUpcoming } =
+  moviesSlice.actions;
 
 export const selectPopular = (state: RootState): Movie[] =>
   state.movies.popular;

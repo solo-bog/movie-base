@@ -10,7 +10,7 @@ import {
   selectUpcomig,
 } from "../../features/movies/moviesSlice";
 
-const Movies = () => {
+const Movies: React.FC = () => {
   const dispatch = useDispatch();
   const popular = useSelector(selectPopular);
   const upcoming = useSelector(selectUpcomig);

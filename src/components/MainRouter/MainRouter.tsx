@@ -4,7 +4,7 @@ import MainNavigation from "../MainNavigation/MainNavigation";
 import Movies from "../../pages/Movies/Movies";
 import Tv from "../../pages/TV/TV";
 
-const MainRouter = () => {
+const MainRouter: React.FC = () => {
   return (
     <div>
       <Switch>

@@ -10,7 +10,7 @@ import {
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import PageSection from "../../components/PageSection/PageSection";
 
-const Tv = () => {
+const Tv: React.FC = () => {
   const dispatch = useAppDispatch();
   useEffect(() => {
     dispatch(fetchData());

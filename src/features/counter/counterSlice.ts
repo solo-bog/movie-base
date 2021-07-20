@@ -7,7 +7,7 @@ import fetchCount from "./counterAPI";
 export interface CounterState {
   value: number;
   status: "idle" | "loading" | "failed";
-  loading?: boolean;
+  loading: boolean;
 }
 
 const initialState: CounterState = {
@@ -72,7 +72,8 @@ export const { increment, decrement, incrementByAmount } = counterSlice.actions;
 // the state. Selectors can also be defined inline where they're used instead of
 // in the slice file. For example: `useSelector((state: RootState) => state.counter.value)`
 export const selectCount = (state: RootState): number => state.counter.value;
-export const selectLoading = (state: RootState) => state.counter.loading;
+export const selectLoading = (state: RootState): boolean =>
+  state.counter.loading;
 
 // We can also write thunks by hand, which may contain both sync and async logic.
 // Here's an example of conditionally dispatching actions based on current state.

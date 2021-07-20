@@ -45,13 +45,13 @@ const StyledCardRating = styled.div`
   border-radius: 20px;
 `;
 
-const CarouselItem = ({
+const CarouselItem: React.FC<CarouselItemProps> = ({
   id,
   title,
   poster,
   rating,
   year,
-}: CarouselItemProps) => {
+}) => {
   return (
     <StyledCard>
       <Link to={`/movies/${id}`}>
