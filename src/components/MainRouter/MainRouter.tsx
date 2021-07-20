@@ -2,6 +2,7 @@ import React from "react";
 import { Switch, Route } from "react-router-dom";
 import MainNavigation from "../MainNavigation/MainNavigation";
 import Movies from "../../pages/Movies/Movies";
+import Tv from "../../pages/TV/TV";
 
 const MainRouter = () => {
   return (
@@ -11,7 +12,7 @@ const MainRouter = () => {
           <Movies />
         </Route>
         <Route exact path="/tv">
-          TV
+          <Tv />
         </Route>
         <Route path="/people">People</Route>
         <Route path="/profile">Profile</Route>
