@@ -4,15 +4,19 @@ import { Provider } from "react-redux";
 import { BrowserRouter as Router } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.css";
 import "./index.css";
+import { ThemeProvider } from "styled-components";
 import App from "./App";
 import { store } from "./app/store";
 import * as serviceWorker from "./serviceWorker";
+import theme from "./style/theme";
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <Router>
-        <App />
+        <ThemeProvider theme={theme}>
+          <App />
+        </ThemeProvider>
       </Router>
     </Provider>
   </React.StrictMode>,

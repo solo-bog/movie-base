@@ -1,25 +1,26 @@
 import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import MainNavigation from "../MainNavigation/MainNavigation";
-import Movies from "../../pages/Movies/Movies";
-import Tv from "../../pages/TV/TV";
+import mainRoutes from "../../routes/mainRoutes";
 
 const MainRouter: React.FC = () => {
   return (
-    <div>
+    <>
       <Switch>
-        <Route exact path="/movies">
-          <Movies />
-        </Route>
-        <Route exact path="/tv">
-          <Tv />
-        </Route>
-        <Route path="/people">People</Route>
-        <Route path="/profile">Profile</Route>
-        <Redirect to="/movies" />
+        {mainRoutes.map(({ path, exact, Component }) => (
+          <Route
+            path={path}
+            exact={exact}
+            key={path}
+            render={() =>
+              typeof Component === "string" ? Component : <Component />
+            }
+          />
+        ))}
+        <Redirect to={mainRoutes[0].path} />
       </Switch>
-      <MainNavigation />
-    </div>
+      <MainNavigation navItems={mainRoutes} />
+    </>
   );
 };
 

@@ -2,10 +2,6 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import "./MainNavigation.css";
-import { ReactComponent as MoviesIcon } from "../../assets/img/clapperboard.svg";
-import { ReactComponent as TVIcon } from "../../assets/img/tv.svg";
-import { ReactComponent as PeopleIcon } from "../../assets/img/group.svg";
-import { ReactComponent as ProfileIcon } from "../../assets/img/user.svg";
 
 const Navbar = styled.nav`
   display: flex;
@@ -16,17 +12,17 @@ const Navbar = styled.nav`
   left: 0;
   width: 100%;
   box-shadow: inset 0 1px 0 0 rgba(217, 217, 217, 0.5);
-  background-color: #fefefe;
+  background-color: ${(props) => props.theme.main.secondBg};
 `;
 
 const StyledNavItem = styled.div`
   text-align: center;
   text-transform: uppercase;
   &:hover {
-    color: #e24951;
+    color: ${(props) => props.theme.main.activeTextColor};
   }
   &:hover svg * {
-    fill: #e24951;
+    fill: ${(props) => props.theme.main.activeTextColor};
   }
   & svg {
     display: block;
@@ -34,38 +30,32 @@ const StyledNavItem = styled.div`
     height: 35px;
     margin: 0 auto;
     & * {
-      fill: #999999;
+      fill: ${(props) => props.theme.main.secondTextColor};
     }
   }
 `;
 
-const MainNavigation: React.FC = () => {
+type NavItem = {
+  path: string;
+  Icon: React.FC;
+  name: string;
+};
+
+type MainNavigationProps = {
+  navItems: NavItem[];
+};
+
+const MainNavigation: React.FC<MainNavigationProps> = ({ navItems }) => {
   return (
     <Navbar>
-      <NavLink to="/movies">
-        <StyledNavItem>
-          <MoviesIcon />
-          Movies
-        </StyledNavItem>
-      </NavLink>
-      <NavLink to="/tv">
-        <StyledNavItem>
-          <TVIcon />
-          TV
-        </StyledNavItem>
-      </NavLink>
-      <NavLink to="/people">
-        <StyledNavItem>
-          <PeopleIcon />
-          People
-        </StyledNavItem>
-      </NavLink>
-      <NavLink to="/profile">
-        <StyledNavItem>
-          <ProfileIcon />
-          Profile
-        </StyledNavItem>
-      </NavLink>
+      {navItems.map(({ path, Icon, name }) => (
+        <NavLink to={path} key={path}>
+          <StyledNavItem>
+            <Icon />
+            {name}
+          </StyledNavItem>
+        </NavLink>
+      ))}
     </Navbar>
   );
 };

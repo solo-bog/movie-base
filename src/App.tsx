@@ -1,16 +1,17 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-import MainRouter from "./components/MainRouter/MainRouter";
 import ErrorBoundary from "./components/ErrorBoundary/ErrorBoundary";
+import routes from "./routes/routes";
 
 const App: React.FC = () => {
   return (
     <ErrorBoundary>
       <Switch>
-        <Route path="/movies/:id">Movie</Route>
-        <Route path="/">
-          <MainRouter />
-        </Route>
+        {routes.map(({ path, exact, Component }) => (
+          <Route path={path} exact={exact} key={path}>
+            {Component}
+          </Route>
+        ))}
       </Switch>
     </ErrorBoundary>
   );
