@@ -1,9 +1,13 @@
 import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
-import counterReducer from "../features/counter/counterSlice";
+// eslint-disable-next-line import/no-cycle
+import moviesReducer from "../features/movies/moviesSlice";
+// eslint-disable-next-line import/no-cycle
+import tvReducer from "../features/tv/tvSlice";
 
 export const store = configureStore({
   reducer: {
-    counter: counterReducer,
+    movies: moviesReducer,
+    tv: tvReducer,
   },
 });
 
