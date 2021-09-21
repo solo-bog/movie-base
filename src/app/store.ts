@@ -3,11 +3,14 @@ import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
 import moviesReducer from "../features/movies/moviesSlice";
 // eslint-disable-next-line import/no-cycle
 import tvReducer from "../features/tv/tvSlice";
+// eslint-disable-next-line import/no-cycle
+import peopleReducer from "../features/people/peopleSlice";
 
 export const store = configureStore({
   reducer: {
     movies: moviesReducer,
     tv: tvReducer,
+    people: peopleReducer,
   },
 });
 
