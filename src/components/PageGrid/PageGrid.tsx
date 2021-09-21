@@ -1,49 +1,39 @@
 import React from "react";
 import styled from "styled-components";
+import Skeleton from "react-loading-skeleton";
+import GridItem, { GridItemProps } from "./GridItem/GridItem";
 
 const Grid = styled.div`
   display: grid;
   grid-gap: 20px;
   padding: 0 20px;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fill, 235px);
+  justify-content: space-around;
 `;
 
-const GridItem = styled.div`
-  background-color: aqua;
-  border: 1px solid red;
-  height: 100px;
-`;
+export type PageGridProps = {
+  items: GridItemProps[];
+  isLoading: boolean;
+};
 
-const GridItemTitle = styled.div`
-  color: #222222;
-  font-weight: bold;
-`;
-
-const GridItemSubTitle = styled.div`
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-`;
-
-const PageGrid = () => {
+const PageGrid: React.FC<PageGridProps> = ({ items, isLoading }) => {
   return (
     <Grid>
-      <GridItem>
-        <img
-          src="https://image.tmdb.org/t/p/w500/34nDCQZwaEvsy4CFO5hkGRFDCVU.jpg"
-          alt="Tom Krus"
-        />
-        <GridItemTitle>Tom Krus</GridItemTitle>
-        <GridItemSubTitle>
-          Film 1, Film 2,Film 1, Film 2Film 1, Film 2
-        </GridItemSubTitle>
-      </GridItem>
-      <GridItem />
-      <GridItem />
-      <GridItem />
-      <GridItem />
-      <GridItem />
-      <GridItem />
+      {items.map((item) =>
+        isLoading ? (
+          <div key={item.fullname}>
+            <Skeleton height={352} />
+            <Skeleton count={2} />
+          </div>
+        ) : (
+          <GridItem
+            key={item.fullname}
+            image={item.image}
+            fullname={item.fullname}
+            films={item.films}
+          />
+        )
+      )}
     </Grid>
   );
 };
